@@ -1,19 +1,13 @@
 language: scala
 
 scala:
-    - 2.6
-    - 2.7
-    - 2.8
-    - 2.9
-    - 2.10
-    - 2.11
-    - 2.12
+    - 2.10.1
+    - 2.11.0
+   # - 2.12
     
 script:
   - export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M"
   - sbt clean scoverage:test
-  
-build_image: drydock/u12sca:tip
 
 after_script:
   - mkdir -p shippable/codecoverage
